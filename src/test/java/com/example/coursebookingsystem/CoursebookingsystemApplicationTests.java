@@ -12,6 +12,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
+import java.util.List;
+
 @RunWith(SpringRunner.class)
 @SpringBootTest
 public class CoursebookingsystemApplicationTests {
@@ -38,6 +40,37 @@ public class CoursebookingsystemApplicationTests {
 		Booking booking = new Booking("12/03/2018", customer, course);
 		bookingRepository.save(booking);
 		}
+
+	@Test
+	public void canGetAllCustomersForCourse(){
+		List<Customer> results = customerRepository.getAllCustomersForGivenCourse(1L);
+
+	}
+
+	@Test
+	public void canGetAllCoursesForCustomer(){
+		List<Course> results = courseRepository.getAllCoursesForGivenCustomer(1L);
+	}
+
+	@Test
+	public void canGetAllCoursesWithGivenRating(){
+		List<Course> results = courseRepository.getAllCoursesWithGivenRating(5);
+	}
+
+	@Test
+	public void canGetAllBookingsWithDate(){
+		List<Booking> results = bookingRepository.getBookingsForDate("23/05/2019");
+	}
+
+	@Test
+	public void canGetCustomersForTownAndCourse(){
+		List<Customer> results = customerRepository.getAllCustomersFromTownForCourse("Heaven", 2L);
+	}
+
+	@Test
+	public void canGetCustomersOfAgeForTownAndCourse(){
+		List<Customer> results = customerRepository.getCustomersOverAgeInTownForCourse(29, "Glasgow", 2L);
+	}
 
 
 }

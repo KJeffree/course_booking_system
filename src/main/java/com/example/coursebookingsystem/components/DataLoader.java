@@ -42,10 +42,16 @@ public class DataLoader implements ApplicationRunner {
         Customer customer2 = new Customer("Oksana", "Heaven", 28);
         customerRepository.save(customer2);
 
-        Booking booking1 = new Booking("23/05/2019", customer1, course1);
+        Booking booking1 = new Booking("23-05-2019", customer1, course1);
         bookingRepository.save(booking1);
 
-        Booking booking2 = new Booking("23/05/2019", customer2, course2);
+        Booking booking2 = new Booking("23-05-2019", customer2, course2);
         bookingRepository.save(booking2);
+
+        Booking booking3 = new Booking("22-12-2025", customer1, course2);
+        bookingRepository.save(booking3);
+
+        Booking booking4 = new Booking("25-12-2030", customer2, course1);
+        bookingRepository.save(booking4);
     }
 }
